@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记事本</title>
+    <link rel="stylesheet" href=".\node_modules\bootstrap\dist\css\bootstrap.css">
+    <link rel="stylesheet" href=".\node_modules\bootstrap\dist\css\bootstrap-theme.css">
+    <link rel="stylesheet" href=".\css\main.css">
+</head>
+<body>
+    <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">记事本</a>
+                </div>
+               
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="">帮助</a></li>
+                    <li><a href="">用户</a></li>
+                </ul>
+    </div>
+  
+    <div id="main">
+        <div class="title">记录你的任务</div>
+        
+        <form @submit.prevent="add" class="editor">
+            <div class="submit">
+                <input id="task-input" placeholder="请输入任务名称" type="text" autocomplete="off" class="col-md-10"
+                    v-model="task.content">
+                    <button id="add-btn" class="btn btn-info" type="submit">新建</button>
+                    <button id="cancel-btn" class="btn" type="button" style="display:none;position:absolute;margin-left:5px;">
+                        取消</button>
+            </div>
+            <div class="detail">
+               <textarea id="detail-area" placeholder="输入详情"  type="text" style="display:none"
+                    v-model="task.detail"></textarea>
+            </div>
+        </form>
+
+        <div class="task-list">
+            <div class="wrap">      
+                <div class="segment-title">待完成</div>
+                <div v-if="!todo.finished" v-for="(todo, index) in list" class="item">
+                    {{todo.content}}
+                    <button @click="finish(index)">完成</button>
+                    <button @click="remove(index)">删除</button>
+                    <button @click="toggle_detail(index)">详情</button>
+                    <div v-if="todo.show_detail" class="detail">
+                        {{todo.detail || '无详情'}}
+                    </div>
+                </div>
+            </div>   
+        </div>
+
+        <div class="task-list">
+            <div class="wrap"> 
+                <div class="segment-title">已完成</div>                    
+                <div v-if="todo.finished" v-for="(todo, index) in list" class="item">
+                    <div class="finished"><img src="./img/finished.png" alt="完成"></div>
+                    {{todo.content}}
+                    <button @click="toggle_detail(index)">详情</button>
+                    <div v-if="todo.show_detail" class="detail">
+                        {{todo.detail || '无详情'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <script src=".\node_modules\jquery\dist\jquery.js"></script>
+    <script src=".\node_modules\vue\dist\vue.js"></script>
+    <script src=".\js\myStorage.js"></script>
+    <script src=".\js\main.js"></script>
+</body>
+</html>
