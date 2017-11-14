@@ -18,8 +18,4 @@
    
 })();
 
-// ms.set('na', 'df');
-// var d = ms.get('na');
-// console.log(d);
-
 

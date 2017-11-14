@@ -12,14 +12,19 @@
             this.list = ms.get('list') || this.list;
         },
 
+        filter: {
+            
+        },
       
 
         methods: {
             add: function() {
+                
                 var task = Object.assign({}, this.task);
                 if (!task.content) return;
-                this.list.push(task);
+                this.list.unshift(task);
                 ms.set('list', this.list);
+                this.reset_task();
             },
 
             remove: function(id) {
@@ -37,6 +42,15 @@
                 
             },
 
+            set_task: function(task) {
+                this.task = Object.assign({}, task);
+            },
+
+            reset_task: function() {
+                this.set_task({});
+            },
+
+          
           
         },
 
@@ -50,12 +64,10 @@
             $("textarea").slideDown(300);
         });
         $("#add-btn").click(function(){
-            $('input').value = '';
             $("#cancel-btn").hide();
             $("textarea").slideUp(200);
         });
         $("#cancel-btn").click(function(){
-            $('#task-input').value = ' ';
             $("#cancel-btn").hide();
             $("textarea").slideUp(200);
         });

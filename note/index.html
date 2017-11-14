@@ -24,12 +24,13 @@
     <div id="main">
         <div class="title">记录你的任务</div>
         
-        <form @submit.prevent="add" class="editor">
+        <form @submit.prevent="add" id="editor" autocomplete="false">
             <div class="submit">
                 <input id="task-input" placeholder="请输入任务名称" type="text" autocomplete="off" class="col-md-10"
                     v-model="task.content">
                     <button id="add-btn" class="btn btn-info" type="submit">新建</button>
-                    <button id="cancel-btn" class="btn" type="button" style="display:none;position:absolute;margin-left:5px;">
+                    <button @click="reset_task" id="cancel-btn" class="btn" type="button"
+                        style="display:none;position:absolute;margin-left:5px;">
                         取消</button>
             </div>
             <div class="detail">
@@ -69,9 +70,9 @@
     
     </div>
 
-    <script src=".\node_modules\jquery\dist\jquery.js"></script>
     <script src=".\node_modules\vue\dist\vue.js"></script>
     <script src=".\js\myStorage.js"></script>
+    <script src=".\node_modules\jquery\dist\jquery.js"></script>
     <script src=".\js\main.js"></script>
 </body>
 </html>
