@@ -11,19 +11,16 @@
 </head>
 <body>
     <div class="navbar navbar-default">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">记事本</a>
-                </div>
-               
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="">帮助</a></li>
-                    <li><a href="">用户</a></li>
-                </ul>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">记事本</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+        </ul>
     </div>
-  
+
     <div id="main">
         <div class="title">记录你的任务</div>
-        
+
         <form @submit.prevent="add" id="editor" autocomplete="false">
             <div class="submit">
                 <input id="task-input" placeholder="请输入任务名称" type="text" autocomplete="off" class="col-md-10"
@@ -40,7 +37,7 @@
         </form>
 
         <div class="task-list">
-            <div class="wrap">      
+            <div class="wrap">
                 <div class="segment-title">待完成</div>
                 <div v-if="!todo.finished" v-for="(todo, index) in list" class="item">
                     {{todo.content}}
@@ -51,12 +48,12 @@
                         {{todo.detail || '无详情'}}
                     </div>
                 </div>
-            </div>   
+            </div>
         </div>
 
         <div class="task-list">
-            <div class="wrap"> 
-                <div class="segment-title">已完成</div>                    
+            <div class="wrap">
+                <div class="segment-title">已完成</div>
                 <div v-if="todo.finished" v-for="(todo, index) in list" class="item">
                     <div class="finished"><img src="./img/finished.png" alt="完成"></div>
                     {{todo.content}}
@@ -67,7 +64,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 
     <script src=".\node_modules\vue\dist\vue.js"></script>

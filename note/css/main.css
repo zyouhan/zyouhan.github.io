@@ -50,20 +50,24 @@ input {
     padding: 5px;
     -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);   
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
 }
 
 .wrap {
     max-width: 500px;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin: 0 auto 30px;
+    border: 1px rgba(71, 58, 58, 0.9) solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 16px #666363;
 }
 
 .segment-title {
-    color: #aaa;
+    color: rgb(46, 44, 44);
     margin-top: 15px;
     margin-bottom: 5px;
+    padding: 5px 20px;
+    border-bottom: 1px #999 solid;
+    font-size: 18px;
     font-weight: lighter;
 }
 
@@ -86,22 +90,8 @@ textarea:hover {
 input:focus {
     border-radius: 6px;
     border: 1px solid #4f7ccf;
-    
+
     outline: none；
-}
-
-.wrap {
-    max-width: 500px;
-    margin: 0 auto;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.task-list .item {
-    padding: 5px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
 }
 
 .task-list .item button {
