@@ -18,7 +18,7 @@
         </ul>
     </div>
 
-    <div id="main">
+    <div id="main" v-cloak>
         <div class="title">记录你的任务</div>
 
         <form @submit.prevent="add" id="editor" autocomplete="false">
@@ -54,7 +54,7 @@
         <div class="task-list">
             <div class="wrap">
                 <div class="segment-title">已完成</div>
-                <div v-if="todo.finished" v-for="(todo, index) in list" class="item" v-cloak>
+                <div v-if="todo.finished" v-for="(todo, index) in list" class="item">
                     <div class="finished"><img src="./img/finished.png" alt="完成"></div>
                     {{todo.content}}
                     <button @click="toggle_detail(index)">详情</button>
