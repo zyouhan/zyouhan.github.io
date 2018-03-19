@@ -39,7 +39,7 @@
         <div class="task-list">
             <div class="wrap">
                 <div class="segment-title">待完成</div>
-                <div v-if="!todo.finished" v-for="(todo, index) in list" class="item" v-cloak>
+                <div v-if="!todo.finished" v-for="(todo, index) in list" class="item">
                     {{todo.content}}
                     <button @click="finish(index)">完成</button>
                     <button @click="remove(index)">删除</button>
