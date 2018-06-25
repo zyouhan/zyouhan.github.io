@@ -14,6 +14,10 @@
     margin: 10px auto;
 }
 
+[v-cloak] {
+    display: none!important;
+}
+
 .title {
     text-align: center;
     font-size: 22px;
