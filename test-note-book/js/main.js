@@ -5,6 +5,7 @@
         data: {
             list: [],
             task: {},
+            taskTitleError: false
         },
 
         mounted: function() { 
@@ -16,12 +17,35 @@
             
         },
       
+        computed: {
+            notFinishedLen() {
+                let len = 0
+                for (let i of this.list) {
+                    if (!i.finished) {
+                        len++
+                    }
+                }
+                return len
+            },
+            finishedLen () {
+                let len = 0
+                for (let i of this.list) {
+                    if (i.finished) {
+                        len++
+                    }
+                }
+                return len
+            }
+        },
 
         methods: {
             add: function() {
                 
                 var task = Object.assign({}, this.task);
-                if (!task.content) return;
+                if (!task.content) {
+                    this.taskTitleError = true
+                    return;
+                }
                 this.list.unshift(task);
                 ms.set('list', this.list);
                 this.reset_task();
@@ -49,9 +73,11 @@
             reset_task: function() {
                 this.set_task({});
             },
-
-          
-          
+            validateTitle: function(val) {
+                if (val.target.value.length > 0) {
+                    this.taskTitleError = false
+                }
+            }
         },
 
     });
