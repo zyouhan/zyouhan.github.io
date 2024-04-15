@@ -67,7 +67,7 @@ input {
     margin: 0 auto 30px;
     border: 1px rgba(71, 58, 58, 0.9) solid;
     border-radius: 10px;
-    box-shadow: 5px 5px 16px #666363;
+    box-shadow: 5px 5px 12px #969393;
 }
 
 .segment-title {
@@ -103,6 +103,9 @@ input:focus {
     outline: none；
 }
 
+.task-list  {
+    padding: 20px;
+}
 .task-list .item button {
     display: none;
     font-size: 80%;
